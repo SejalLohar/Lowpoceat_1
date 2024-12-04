@@ -1,26 +1,50 @@
-$(document).ready(function() {
-    $('#verify-email-btn').click(function() {
-        var email = $('#email').val();
+document.addEventListener('DOMContentLoaded', function () {
+    console.log("JavaScript loaded");
 
-        $.ajax({
-            url: '{% url "verify_email" %}',
+    const verifyEmailBtn = document.getElementById('verify-email-btn');
+    const emailField = document.getElementById('email');
+    const feedbackDiv = document.getElementById('email-feedback');
+    const passwordFields = document.getElementById('password-fields');
+
+    if (!verifyEmailBtn) {
+        console.error("Verify Email button not found!");
+        return;
+    }
+
+    verifyEmailBtn.addEventListener('click', function () {
+        console.log("Verify Email button clicked");
+
+        const email = emailField.value.trim();
+        console.log("Email entered:", email);
+
+        if (!email) {
+            feedbackDiv.innerText = "Please enter a valid email address.";
+            return;
+        }
+
+        const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+        fetch('/check-email/', {
             method: 'POST',
-            data: {
-                email: email,
-                csrfmiddlewaretoken: $('input[name="csrfmiddlewaretoken"]').val()
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken
             },
-            success: function(response) {
-                if (response.status === 'success') {
-                    $('#email-feedback').html('<span class="text-success">Email verified!</span>');
-                    // Show the password fields once email is verified
-                    $('#password-fields').show();
+            body: JSON.stringify({ email: email })
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Server response:", data);
+                if (data.status === 'success') {
+                    feedbackDiv.innerText = data.message;
+                    passwordFields.style.display = 'block';
                 } else {
-                    $('#email-feedback').html('<span class="text-danger">' + response.message + '</span>');
+                    feedbackDiv.innerText = data.message;
                 }
-            },
-            error: function() {
-                $('#email-feedback').html('<span class="text-danger">An error occurred. Please try again.</span>');
-            }
-        });
+            })
+            .catch(error => {
+                feedbackDiv.innerText = "An error occurred. Please try again.";
+                console.error("Error:", error);
+            });
     });
 });
