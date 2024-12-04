@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e094022d-f0f9-4a32-9398-56f9a20e549d" name="Changes" comment="">
+    <list default="true" id="e094022d-f0f9-4a32-9398-56f9a20e549d" name="Changes" comment="hi">
       <change afterPath="$PROJECT_DIR$/.idea/DjangoProject2.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
@@ -100,10 +100,15 @@
       <updated>1733158519998</updated>
       <workItem from="1733158521083" duration="3533000" />
       <workItem from="1733245592191" duration="4400000" />
+      <workItem from="1733292020528" duration="396000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="hi" />
+    <option name="LAST_COMMIT_MESSAGE" value="hi" />
   </component>
 </project>
