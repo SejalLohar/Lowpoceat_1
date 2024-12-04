@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LowPocEat</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <style>
+    /* Custom Styles */
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    .card {
+      border-radius: 12px;
+    }
+    .blockquote {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #333;
+    }
+    footer {
+      background-color: #333;
+      color: white;
+    }
+    footer a img {
+      margin: 0 5px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="#">LowPocEat</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a>
+        <li class="nav-item"><a class="btn btn-dark text-white px-4" href="#help">HELP</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Feedback Section -->
+<div class="container my-5">
+  <h2 class="text-center font-weight-bold">Our Feedback</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <blockquote class="blockquote">
+            <p>“A terrific piece of praise”</p>
+          </blockquote>
+          <div class="d-flex align-items-center mt-4">
+            <img src="https://via.placeholder.com/45" class="rounded-circle" alt="User Image">
+            <div class="ms-3">
+              <h6 class="mb-0">John Doe</h6>
+              <small class="text-muted">Regular User</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <blockquote class="blockquote">
+            <p>“A fantastic bit of feedback”</p>
+          </blockquote>
+          <div class="d-flex align-items-center mt-4">
+            <img src="https://via.placeholder.com/45" class="rounded-circle" alt="User Image">
+            <div class="ms-3">
+              <h6 class="mb-0">Jane Smith</h6>
+              <small class="text-muted">Verified Buyer</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <blockquote class="blockquote">
+            <p>“A genuinely glowing review”</p>
+          </blockquote>
+          <div class="d-flex align-items-center mt-4">
+            <img src="https://via.placeholder.com/45" class="rounded-circle" alt="User Image">
+            <div class="ms-3">
+              <h6 class="mb-0">Alan Walker</h6>
+              <small class="text-muted">Top Contributor</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Meal Recommendations Section -->
+<div class="container my-5">
+  <h2 class="text-center">Meal Suggestions</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Meal Image">
+        <div class="card-body">
+          <h5 class="card-title">Healthy Breakfast</h5>
+          <p class="card-text">A quick and nutritious option.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Meal Image">
+        <div class="card-body">
+          <h5 class="card-title">Budget Lunch</h5>
+          <p class="card-text">Pocket-friendly and delicious.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Meal Image">
+        <div class="card-body">
+          <h5 class="card-title">Light Dinner</h5>
+          <p class="card-text">Perfect for a relaxing evening.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="text-center py-4">
+  <p>Follow us on:
+    <a href="#"><img src="https://via.placeholder.com/20" alt="Facebook"></a>
+    <a href="#"><img src="https://via.placeholder.com/20" alt="Twitter"></a>
+    <a href="#"><img src="https://via.placeholder.com/20" alt="Instagram"></a>
+  </p>
+  <p>&copy; 2024 LowPocEat. All Rights Reserved.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
