@@ -1,152 +1,183 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LowPocEat</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <title>Web Page</title>
   <style>
-    /* Custom Styles */
-    .navbar-brand {
-      font-weight: bold;
-      font-size: 1.5rem;
+    /* Container for the entire page */
+    .container {
+      width: 100%;
+      height: 100vh;
+      background: white;
+      position: relative;
     }
-    .card {
-      border-radius: 12px;
+
+    /* Logo Image */
+    .logo {
+      width: 150px;
+      height: 40px;
+      margin-left: 20px;
     }
-    .blockquote {
-      font-size: 1.2rem;
+
+    /* Navigation Bar Styling */
+    .navbar {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 30px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    /* Navigation Links */
+    .nav-item {
+      color: black;
+      font-size: 20px;
+      font-family: 'Inter', sans-serif;
       font-weight: 500;
-      color: #333;
     }
-    footer {
-      background-color: #333;
+
+    /* Rotating Divider Line */
+    .divider-vertical {
+      width: 46.01px;
+      height: 0;
+      position: absolute;
+      left: 1125px;
+      top: 68px;
+      transform: rotate(91.25deg);
+      transform-origin: 0 0;
+      border: 1px solid black;
+    }
+
+    /* Horizontal Divider Line */
+    .divider-horizontal {
+      width: 100%;
+      height: 0;
+      position: absolute;
+      left: 0;
+      top: 172px;
+      opacity: 0.50;
+      border: 1px solid black;
+    }
+
+    /* Heading Section */
+    .heading-section {
+      width: 100%;
+      height: 72px;
+      position: absolute;
+      left: 41px;
+      top: 238px;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 40px;
+    }
+
+    /* Main Heading Text */
+    .main-heading {
+      width: 894px;
+      color: #123B57;
+      font-size: 24px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 36px;
+      word-wrap: break-word;
+    }
+
+    /* Description Text */
+    .description {
+      width: 884px;
+      color: rgba(0, 0, 0, 0.75);
+      font-size: 24px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 36px;
+      word-wrap: break-word;
+      position: absolute;
+      left: 41px;
+      top: 376px;
+    }
+
+    /* Information Button */
+    .info-button {
+      width: 205px;
+      height: 59px;
+      position: absolute;
+      left: 41px;
+      top: 445px;
+      background: black;
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+      border-radius: 8px;
+      overflow: hidden;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .info-button-text {
       color: white;
+      font-size: 24px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      line-height: 36px;
+      word-wrap: break-word;
     }
-    footer a img {
-      margin: 0 5px;
+
+    /* Navigation Links Styling */
+    .nav-item a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .nav-item a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <a class="navbar-brand" href="#">LowPocEat</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a>
-        <li class="nav-item"><a class="btn btn-dark text-white px-4" href="#help">HELP</a></li>
-      </ul>
+    <!-- Navigation Bar with Logo and Links -->
+    <div class="navbar">
+        <img src="{% static 'demo/images/loogo.png' %}" alt="Logo">
+
+      <div class="nav-item">
+        <a href="home.html">Home</a>
+      </div>
+      <div class="nav-item">
+        <a href="{% url 'signup' %}">Sign Up</a>
+      </div>
+      <div class="nav-item">
+        <a href="{% url 'login' %}">Login</a>
+      </div>
+      <div class="nav-item">
+        <a href="help.html">Help</a>
+      </div>
+    </div>
+
+    <div class="divider-vertical"></div>
+    <div class="divider-horizontal"></div>
+
+    <div class="heading-section">
+      <div class="main-heading">
+        Namaste Indians,<br />We are here to add nutrition to your life, hope your body will earn and love it.
+      </div>
+    </div>
+
+    <div class="description">
+      We want your details which will help us to give you a meal plan accordingly.
+    </div>
+
+    <div class="info-button">
+      <div class="info-button-text">Information</div>
     </div>
   </div>
-</nav>
 
-<!-- Feedback Section -->
-<div class="container my-5">
-  <h2 class="text-center font-weight-bold">Our Feedback</h2>
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card shadow-sm border-0">
-        <div class="card-body">
-          <blockquote class="blockquote">
-            <p>“A terrific piece of praise”</p>
-          </blockquote>
-          <div class="d-flex align-items-center mt-4">
-            <img src="https://via.placeholder.com/45" class="rounded-circle" alt="User Image">
-            <div class="ms-3">
-              <h6 class="mb-0">John Doe</h6>
-              <small class="text-muted">Regular User</small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card shadow-sm border-0">
-        <div class="card-body">
-          <blockquote class="blockquote">
-            <p>“A fantastic bit of feedback”</p>
-          </blockquote>
-          <div class="d-flex align-items-center mt-4">
-            <img src="https://via.placeholder.com/45" class="rounded-circle" alt="User Image">
-            <div class="ms-3">
-              <h6 class="mb-0">Jane Smith</h6>
-              <small class="text-muted">Verified Buyer</small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card shadow-sm border-0">
-        <div class="card-body">
-          <blockquote class="blockquote">
-            <p>“A genuinely glowing review”</p>
-          </blockquote>
-          <div class="d-flex align-items-center mt-4">
-            <img src="https://via.placeholder.com/45" class="rounded-circle" alt="User Image">
-            <div class="ms-3">
-              <h6 class="mb-0">Alan Walker</h6>
-              <small class="text-muted">Top Contributor</small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Meal Recommendations Section -->
-<div class="container my-5">
-  <h2 class="text-center">Meal Suggestions</h2>
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card">
-        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Meal Image">
-        <div class="card-body">
-          <h5 class="card-title">Healthy Breakfast</h5>
-          <p class="card-text">A quick and nutritious option.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Meal Image">
-        <div class="card-body">
-          <h5 class="card-title">Budget Lunch</h5>
-          <p class="card-text">Pocket-friendly and delicious.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Meal Image">
-        <div class="card-body">
-          <h5 class="card-title">Light Dinner</h5>
-          <p class="card-text">Perfect for a relaxing evening.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Footer -->
-<footer class="text-center py-4">
-  <p>Follow us on:
-    <a href="#"><img src="https://via.placeholder.com/20" alt="Facebook"></a>
-    <a href="#"><img src="https://via.placeholder.com/20" alt="Twitter"></a>
-    <a href="#"><img src="https://via.placeholder.com/20" alt="Instagram"></a>
-  </p>
-  <p>&copy; 2024 LowPocEat. All Rights Reserved.</p>
-</footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

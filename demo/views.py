@@ -6,6 +6,8 @@ from django.http import JsonResponse
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
+from .forms import SignUpForm  # Ensure correct import from the current app's forms.py
+
 
 verification_codes = {}
 
@@ -17,10 +19,10 @@ def register_view(request):
         password2 = request.POST['password2']
 
         if password1 != password2:
-            return render(request, 'register.html', {'error': 'Passwords do not match!'})
+            return render(request, 'signup.html', {'error': 'Passwords do not match!'})
 
         if User.objects.filter(email=email).exists():
-            return render(request, 'register.html', {'error': 'Email already in use!'})
+            return render(request, 'signup.html', {'error': 'Email already in use!'})
 
         # Create user but mark them as inactive until email is verified
         user = User.objects.create_user(username=username, email=email, password=password1, is_active=False)
@@ -42,7 +44,7 @@ def register_view(request):
 
         return JsonResponse({'status': 'success', 'message': 'Check your email for verification link!'})
 
-    return render(request, 'register.html')
+    return render(request, 'signup.html')
 
 
 # demo/views.py
@@ -94,5 +96,21 @@ def home_view(request):
 def login_view(request):
     return render(request,'demo/login.html')
 
-def register_view(request):
-    return render(request, 'demo/register.html')
+def userprofile_view(request):
+    return render(request,'demo/userprofile.html')
+
+
+
+def signup_view(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            # Here, save the user data to the database
+            messages.success(request, 'Sign up successful!')
+            return redirect('login')  # Redirect to login page
+        else:
+            messages.error(request, 'There was an error with your submission.')
+    else:
+        form = SignUpForm()
+
+    return render(request, 'demo/signup.html', {'form': form})

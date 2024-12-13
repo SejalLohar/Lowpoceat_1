@@ -5,11 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e094022d-f0f9-4a32-9398-56f9a20e549d" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/demo/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/static/demo/images/loogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/templates/demo/signup.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/templates/demo/userprofile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/DjangoProject2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DjangoProject2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject2/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoProject2/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/templates/demo/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/demo/templates/demo/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/templates/demo/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/demo/templates/demo/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/templates/demo/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/demo/templates/demo/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/templates/demo/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +27,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -25,12 +35,12 @@
     &quot;assignee&quot;: &quot;abrar1200&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/abrar1200/lowpoceat.git&quot;,
-    &quot;accountId&quot;: &quot;827e4ac3-e83c-4725-90d8-227cb0f9d461&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/abrar1200/lowpoceat",
+    "accountId": "01875df9-018d-4af3-bbe5-1bc9673d281a"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -53,6 +63,7 @@
     &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR_AND_PREVIEW&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/SEJAL/Documents/lowpoceat/demo/static/demo/images&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -61,6 +72,16 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\SEJAL\Documents\lowpoceat\demo\static\demo\images" />
+      <recent name="C:\Users\SEJAL\Documents\lowpoceat\demo\templates\demo" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\SEJAL\Documents\lowpoceat\demo\static\demo\images" />
+      <recent name="C:\Users\SEJAL\Documents\lowpoceat\demo\media\images" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="DjangoProject2" type="Python.DjangoServer" factoryName="Django server">
       <module name="DjangoProject2" />
@@ -110,6 +131,7 @@
       <workItem from="1733331673104" duration="1983000" />
       <workItem from="1733398205098" duration="1824000" />
       <workItem from="1733503736217" duration="1355000" />
+      <workItem from="1734096268515" duration="3012000" />
     </task>
     <task id="LOCAL-00001" summary="hi">
       <option name="closed" value="true" />

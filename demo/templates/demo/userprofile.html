@@ -1,0 +1,102 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Page</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 1440px;
+            height: 1024px;
+            position: relative;
+            background-color: white;
+        }
+
+        .button {
+            width: 367px;
+            height: 82px;
+            position: absolute;
+            left: 537px;
+            top: 817px;
+            background-color: black;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .button-text {
+            color: white;
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 36px;
+        }
+
+        .grey-box {
+            background-color: #D9D9D9;
+            position: absolute;
+        }
+
+        .form-title {
+            width: 335px;
+            height: 65px;
+            position: absolute;
+            left: 594px;
+            top: 122px;
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 36px;
+            color: black;
+        }
+
+        .form-label {
+            color: black;
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 36px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="button">
+        <span class="button-text">Submit</span>
+    </div>
+
+    <div class="grey-box" style="width: 1312px; height: 237px; left: 51px; top: 187px;"></div>
+
+    <div class="form-title">Fill up your details.</div>
+
+    <div class="form-label" style="width: 199px; height: 42px; left: 68px; top: 264px;">Name:</div>
+    <div class="form-label" style="width: 199px; height: 42px; left: 68px; top: 335px;">Age:</div>
+
+    <div class="grey-box" style="width: 474px; height: 195px; left: 51px; top: 440px;"></div>
+    <div class="form-label" style="width: 199px; height: 42px; left: 68px; top: 453px;">Height:</div>
+    <div class="form-label" style="width: 199px; height: 42px; left: 68px; top: 517px;">Weight:</div>
+
+    <div class="grey-box" style="width: 799px; height: 195px; left: 564px; top: 440px;"></div>
+    <div class="form-label" style="width: 199px; height: 42px; left: 581px; top: 453px;">Diet Preference:</div>
+    <div class="form-label" style="width: 199px; height: 42px; left: 581px; top: 508px;">Food Allergies:</div>
+
+    <div class="grey-box" style="width: 474px; height: 135px; left: 51px; top: 659px;"></div>
+    <div class="form-label" style="width: 199px; height: 42px; left: 68px; top: 668px;">Budget:</div>
+
+    <div class="grey-box" style="width: 774px; height: 135px; left: 575px; top: 658px;"></div>
+    <div class="form-label" style="width: 238px; height: 42px; left: 588px; top: 668px;">Health Conditions:</div>
+</div>
+
+</body>
+</html>
