@@ -1,25 +1,35 @@
-from django.shortcuts import render, redirect
+# demo/forms.py
 from django import forms
-from django.contrib import messages
+from django.contrib.auth.models import User
 
-# Form for sign-up
-class SignUpForm(forms.Form):
-    email = forms.EmailField(widget=forms.EmailInput(attrs={
-        'placeholder': 'Enter your email',
-        'class': 'form-control'
-    }))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={
-        'placeholder': 'Enter your password',
-        'class': 'form-control'
-    }))
-    confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={
-        'placeholder': 'Re-enter your password',
-        'class': 'form-control'
-    }))
+class SignUpForm(forms.ModelForm):
+    password1 = forms.CharField(widget=forms.PasswordInput, label="Password")
+    password2 = forms.CharField(widget=forms.PasswordInput, label="Confirm Password")
 
-    def clean(self):
-        cleaned_data = super().clean()
-        password = cleaned_data.get("password")
-        confirm_password = cleaned_data.get("confirm_password")
-        if password != confirm_password:
+    class Meta:
+        model = User
+        fields = ['username', 'email']
+
+    def clean_password2(self):
+        password1 = self.cleaned_data.get('password1')
+        password2 = self.cleaned_data.get('password2')
+        if password1 and password2 and password1 != password2:
             raise forms.ValidationError("Passwords do not match.")
+        return password2
+
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
+class SignUpForm(UserCreationForm):
+    email = forms.EmailField(required=True)
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password1', 'password2')
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError("Email already in use.")
+        return email

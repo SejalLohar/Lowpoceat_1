@@ -5,18 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e094022d-f0f9-4a32-9398-56f9a20e549d" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/demo/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/static/demo/images/loogo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/templates/demo/signup.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/templates/demo/userprofile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/DjangoProject2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DjangoProject2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06-12-2024_22_49_[Changes]/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06-12-2024_22_49_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06-12-2024_22_49__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DjangoProject2/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoProject2/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject2/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoProject2/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/templates/demo/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/demo/templates/demo/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/templates/demo/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/demo/templates/demo/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/templates/demo/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/templates/demo/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/demo/templates/demo/signup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/views.py" afterDir="false" />
     </list>
@@ -35,12 +37,12 @@
     &quot;assignee&quot;: &quot;abrar1200&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/abrar1200/lowpoceat",
-    "accountId": "01875df9-018d-4af3-bbe5-1bc9673d281a"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/abrar1200/lowpoceat&quot;,
+    &quot;accountId&quot;: &quot;827e4ac3-e83c-4725-90d8-227cb0f9d461&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -112,8 +114,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-PY-243.21565.199" />
-        <option value="bundled-python-sdk-cab1f2013843-4ae2d6a61b08-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.21565.199" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-PY-243.22562.180" />
+        <option value="bundled-python-sdk-85c76a3b01b3-9a18a617cbe4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.22562.180" />
       </set>
     </attachedChunks>
   </component>
@@ -132,6 +134,9 @@
       <workItem from="1733398205098" duration="1824000" />
       <workItem from="1733503736217" duration="1355000" />
       <workItem from="1734096268515" duration="3012000" />
+      <workItem from="1734101606020" duration="4946000" />
+      <workItem from="1734112797539" duration="79000" />
+      <workItem from="1734147079952" duration="1924000" />
     </task>
     <task id="LOCAL-00001" summary="hi">
       <option name="closed" value="true" />
@@ -154,6 +159,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="hi" />

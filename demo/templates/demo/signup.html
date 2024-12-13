@@ -96,78 +96,94 @@
       text-decoration: underline;
     }
 
-    /* Button Section */
-    .button-container {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-    }
-
-    /* Button Styles */
-    .button {
-      padding: 12px 24px;
-      border-radius: 8px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
+    /* Sign In Button */
+    .signin-button {
+      width: 100%;
+      padding: 16px;
+      background: #E6E6E6;
+      color: black;
       font-size: 18px;
       font-family: 'Inter', sans-serif;
       font-weight: 500;
-      line-height: 36px;
+      text-align: center;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
     }
 
-    .primary-button {
-      background: black;
-      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-      color: white;
+    .signin-button:hover {
+      background: #ccc;
     }
 
-    .secondary-button {
-      background: #E6E6E6;
-      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-      color: black;
+    /* Messages Section */
+    .messages {
+      width: 100%;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .message {
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .error {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+
+    .success {
+      background-color: #d4edda;
+      color: #155724;
     }
   </style>
 </head>
 <body>
-
   <div class="container">
     <!-- Sign up title -->
     <div class="sign-up-title">Sign Up</div>
 
+    <!-- Displaying messages (error/success) -->
+    {% if messages %}
+      <div class="messages">
+        {% for message in messages %}
+          <div class="message {{ message.tags }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
     <!-- Form Container -->
     <div class="form-container">
-      <!-- Input Fields -->
-      <div class="input-label">Email:</div>
-      <input type="email" class="input-field" placeholder="Enter your email" required>
+      <form method="post">
+        {% csrf_token %}
+        <label for="username" class="input-label">Username:</label>
+        <input type="text" name="username" class="input-field" placeholder="Enter your username" required>
 
-      <div class="input-label">Password:</div>
-      <input type="password" class="input-field" placeholder="Enter your password" required>
+        <label for="email" class="input-label">Email:</label>
+        <input type="email" name="email" class="input-field" placeholder="Enter your email" required>
 
-      <div class="input-label">Reconfirm Password:</div>
-      <input type="password" class="input-field" placeholder="Reconfirm your password" required>
+        <label for="password1" class="input-label">Password:</label>
+        <input type="password" name="password1" class="input-field" placeholder="Enter your password" required>
 
-      <!-- Sign Up Button -->
-      <button class="sign-up-button">Sign Up</button>
+        <label for="password2" class="input-label">Reconfirm Password:</label>
+        <input type="password" name="password2" class="input-field" placeholder="Reconfirm your password" required>
+
+        <button type="submit" class="sign-up-button">Sign Up</button>
+      </form>
 
       <!-- Already have an account? -->
       <div class="already-account">
-        Already have an account? <a href="#">Log In</a>
+        Already have an account? <a href="{% url 'login' %}">Log In</a>
       </div>
-    </div>
 
-    <!-- Button Section (Optional, as needed) -->
-    <div class="button-container">
-      <div class="button primary-button">
-        <div>Button</div>
-      </div>
-      <div class="button secondary-button">
-        <div>Secondary button</div>
-      </div>
+      <!-- Sign In Button -->
+      <button class="signin-button" onclick="window.location.href='{% url 'login' %}'">Already have an account? Log in</button>
     </div>
   </div>
-
 </body>
 </html>

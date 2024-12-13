@@ -1,116 +1,56 @@
 from django.shortcuts import render, redirect
-from django.core.mail import send_mail
-from django.conf import settings
-from django.utils.crypto import get_random_string
-from django.http import JsonResponse
-from django.core.validators import validate_email
-from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
-from .forms import SignUpForm  # Ensure correct import from the current app's forms.py
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
 
-
-verification_codes = {}
-
-def register_view(request):
+# Sign Up View
+# Sign Up View
+def signup_view(request):
     if request.method == 'POST':
         username = request.POST['username']
         email = request.POST['email']
         password1 = request.POST['password1']
         password2 = request.POST['password2']
 
+        # Check if passwords match
         if password1 != password2:
-            return render(request, 'signup.html', {'error': 'Passwords do not match!'})
+            messages.error(request, "Passwords do not match!")
+            return redirect('signup')
 
+        # Check if the email is already in use
         if User.objects.filter(email=email).exists():
-            return render(request, 'signup.html', {'error': 'Email already in use!'})
+            messages.error(request, "Email is already registered!")
+            return redirect('signup')
 
-        # Create user but mark them as inactive until email is verified
-        user = User.objects.create_user(username=username, email=email, password=password1, is_active=False)
+        # Create and save user
+        user = User.objects.create_user(username=username, email=email, password=password1)
         user.save()
 
-        # Generate a verification code
-        verification_code = get_random_string(length=32)
-        verification_codes[email] = verification_code
+        # Display success message
+        messages.success(request, "Your account has been created. Please log in.")
+        return redirect('login')
 
-        # Send verification email
-        verification_link = f"http://127.0.0.1:8000/verify/{verification_code}/"
-        send_mail(
-            'Verify your email',
-            f'Click the link to verify your email: {verification_link}',
-            settings.DEFAULT_FROM_EMAIL,
-            [email],
-            fail_silently=False,
-        )
-
-        return JsonResponse({'status': 'success', 'message': 'Check your email for verification link!'})
-
-    return render(request, 'signup.html')
-
-
-# demo/views.py
-from django.http import JsonResponse
-from django.http import JsonResponse
-
-def check_email(request):
-    if request.method == 'POST':
-        import json
-        data = json.loads(request.body)
-        email = data.get('email', '')
-        if email:  # Simulate email verification
-            return JsonResponse({"status": "success", "message": "Verification email sent!"})
-        return JsonResponse({"status": "error", "message": "Invalid email address."})
-    return JsonResponse({"status": "error", "message": "Invalid request method."})
-
-
-from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
-from django.http import JsonResponse
-from .models import EmailVerificationCode  # This model should store the code for email verification
-
-def verify_email(request, code):
-    try:
-        # Check if the code exists in the database
-        verification_record = EmailVerificationCode.objects.get(code=code)
-
-        # If code is found, validate it
-        if verification_record.is_valid:
-            # Set email as verified or take the appropriate action
-            user = verification_record.user
-            user.is_active = True  # Activate user account or take other actions
-            user.save()
-
-            # Mark the code as used
-            verification_record.is_valid = False
-            verification_record.save()
-
-            return JsonResponse({"status": "success", "message": "Email successfully verified."})
-        else:
-            return JsonResponse({"status": "error", "message": "Invalid or expired verification code."})
-
-    except EmailVerificationCode.DoesNotExist:
-        return JsonResponse({"status": "error", "message": "Verification code not found."})
-
-def home_view(request):
-    return render(request, 'demo/home.html')
-
+    return render(request, 'demo/signup.html')
+# Login View
 def login_view(request):
-    return render(request,'demo/login.html')
-
-def userprofile_view(request):
-    return render(request,'demo/userprofile.html')
-
-
-
-def signup_view(request):
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            # Here, save the user data to the database
-            messages.success(request, 'Sign up successful!')
-            return redirect('login')  # Redirect to login page
-        else:
-            messages.error(request, 'There was an error with your submission.')
-    else:
-        form = SignUpForm()
+        username = request.POST['username']
+        password = request.POST['password']
 
-    return render(request, 'demo/signup.html', {'form': form})
+        # Authenticate user
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            messages.success(request, f"Welcome back, {user.username}!")  # Optional: welcome message
+            return redirect('home')  # Redirect to the home page after successful login
+        else:
+            messages.error(request, "Invalid credentials!")
+            return redirect('login')
+
+    return render(request, 'demo/login.html')
+
+# Home View
+def home_view(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    return render(request, 'demo/home.html', {'username': request.user.username})

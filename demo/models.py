@@ -64,12 +64,20 @@ class UserPreference(models.Model):
     def __str__(self):
         return f"{self.user.username}'s preferences"
 
-# Optional table for email verification (if required for registration)
+from django.db import models
+from django.contrib.auth.models import User
+from django.utils.timezone import now
+from datetime import timedelta
+
 class EmailVerificationCode(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    code = models.CharField(max_length=50)
-    is_valid = models.BooleanField(default=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='verification_code')
+    code = models.CharField(max_length=32, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    expires_at = models.DateTimeField(default=lambda: now() + timedelta(hours=24))
+    is_valid = models.BooleanField(default=True)
+
+    def is_expired(self):
+        return now() > self.expires_at
 
     def __str__(self):
-        return f"Code for {self.user.email}"
+        return f"Verification Code for {self.user.username}"
