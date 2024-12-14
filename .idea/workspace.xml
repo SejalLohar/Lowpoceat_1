@@ -4,21 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e094022d-f0f9-4a32-9398-56f9a20e549d" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DjangoProject2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DjangoProject2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06-12-2024_22_49_[Changes]/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06-12-2024_22_49_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06-12-2024_22_49__Changes_.xml" beforeDir="false" />
+    <list default="true" id="e094022d-f0f9-4a32-9398-56f9a20e549d" name="Changes" comment="user and login db success">
+      <change afterPath="$PROJECT_DIR$/demo/static/images/backg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/templates/demo/profilesuc.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/templates/demo/recipe_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/templates/demo/recipe_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/qodana.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DjangoProject2/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoProject2/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DjangoProject2/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoProject2/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/migrations/0002_disease_ingredient_meal_mealingredient_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/migrations/0003_meal_description.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/templates/demo/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/demo/templates/demo/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/templates/demo/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/demo/templates/demo/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/templates/demo/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/demo/templates/demo/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/templates/demo/userprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/demo/templates/demo/userprofile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/views.py" afterDir="false" />
     </list>
@@ -27,7 +31,19 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Sejal &lt;sejallohar27@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
@@ -43,6 +59,9 @@
     &quot;accountId&quot;: &quot;827e4ac3-e83c-4725-90d8-227cb0f9d461&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -57,6 +76,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;Django Server.DjangoProject2.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -65,21 +85,29 @@
     &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR_AND_PREVIEW&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/SEJAL/Documents/lowpoceat/demo/static/demo/images&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/new1/demo/static/images&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="QodanaReportsService">
+    <option name="descriptions">
+      <ReportDescription localRun="true" path="C:\Users\pabra\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="7ff7dff0-a909-4871-bf0e-7b2f86d50d2e" reportId="new1/qodana/2024-12-14" />
+    </option>
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\new1\demo\static\images" />
       <recent name="C:\Users\SEJAL\Documents\lowpoceat\demo\static\demo\images" />
       <recent name="C:\Users\SEJAL\Documents\lowpoceat\demo\templates\demo" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\new1\demo\static\images" />
       <recent name="C:\Users\SEJAL\Documents\lowpoceat\demo\static\demo\images" />
       <recent name="C:\Users\SEJAL\Documents\lowpoceat\demo\media\images" />
     </key>
@@ -136,7 +164,15 @@
       <workItem from="1734096268515" duration="3012000" />
       <workItem from="1734101606020" duration="4946000" />
       <workItem from="1734112797539" duration="79000" />
-      <workItem from="1734147079952" duration="1924000" />
+      <workItem from="1734147079952" duration="7980000" />
+      <workItem from="1734161668866" duration="12957000" />
+      <workItem from="1734238862236" duration="2322000" />
+      <workItem from="1734266925804" duration="7382000" />
+      <workItem from="1734315791304" duration="28279000" />
+      <workItem from="1734395107188" duration="5198000" />
+      <workItem from="1734410400478" duration="1972000" />
+      <workItem from="1734422775780" duration="309000" />
+      <workItem from="1734512676607" duration="480000" />
     </task>
     <task id="LOCAL-00001" summary="hi">
       <option name="closed" value="true" />
@@ -154,7 +190,23 @@
       <option name="project" value="LOCAL" />
       <updated>1733414056749</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="user and login db success">
+      <option name="closed" value="true" />
+      <created>1734149114655</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1734149114655</updated>
+    </task>
+    <task id="LOCAL-00004" summary="user and login db success">
+      <option name="closed" value="true" />
+      <created>1734149141540</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1734149141540</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,6 +226,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="hi" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;demo/migrations/0002_disease_ingredient_meal_mealingredient_and_more.py" />
+    <MESSAGE value="user and login db success" />
+    <option name="LAST_COMMIT_MESSAGE" value="user and login db success" />
   </component>
 </project>

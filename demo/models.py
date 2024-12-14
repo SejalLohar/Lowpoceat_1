@@ -1,18 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.timezone import now
+from datetime import timedelta
 
-# Table to store diseases
-class Disease(models.Model):
+
+class HealthConditions(models.Model):
     name = models.CharField(max_length=100, unique=True)
-
-    def __str__(self):
-        return self.name
-
-# Table to store ingredients
-class Ingredient(models.Model):
-    name = models.CharField(max_length=100, unique=True)
-    nutritional_values = models.JSONField()  # Stores detailed nutrition (e.g., {"calories": 50, "protein": 2})
-    price = models.DecimalField(max_digits=10, decimal_places=2)  # Price per unit (e.g., per kg, per liter)
 
     def __str__(self):
         return self.name
@@ -31,26 +24,24 @@ class Meal(models.Model):
     ]
 
     name = models.CharField(max_length=100, unique=True)
-    description = models.TextField(blank=True, null=True)  # Optional recipe description
     meal_type = models.CharField(max_length=20, choices=MEAL_TYPES)
     diet_suitability = models.CharField(max_length=20, choices=DIET_CHOICES)
-    disease_suitability = models.ManyToManyField(Disease, blank=True)  # Diseases for which the meal is suitable
-    ingredients = models.ManyToManyField(Ingredient, through='MealIngredient')  # Links to ingredients
+    health_condition_suitability = models.ManyToManyField(HealthConditions, blank=True)  # Health conditions for which the meal is suitable
+    ingredients = models.TextField()  # Ingredients as a simple text field
+    instructions = models.TextField()  # Recipe instructions
+    total_cost =models.IntegerField()  # Total cost of the meal
+    calories = models.TextField()  # Calories per serving
+    fat =  models.TextField()# Fat per serving
+    protein =  models.TextField()# Protein per serving
+    carbohydrates =  models.TextField() # Carbohydrates per serving
+    vitamin_c = models.TextField()  # Vitamin C per serving
 
     def __str__(self):
         return self.name
 
-# Through model to link meals and ingredients with quantity
-class MealIngredient(models.Model):
-    meal = models.ForeignKey(Meal, on_delete=models.CASCADE)
-    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
-    quantity = models.CharField(max_length=50)  # E.g., "200g", "1 cup", "2 tsp"
 
-    def __str__(self):
-        return f"{self.ingredient.name} in {self.meal.name}"
-
-# Table to store user preferences
-class UserPreference(models.Model):
+# Table to store user preferences and profiles
+class UserProfile(models.Model):
     DIET_CHOICES = [
         ('Vegan', 'Vegan'),
         ('Vegetarian', 'Vegetarian'),
@@ -58,22 +49,27 @@ class UserPreference(models.Model):
     ]
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    diet_type = models.CharField(max_length=20, choices=DIET_CHOICES)
-    diseases = models.ManyToManyField(Disease, blank=True)  # User's health conditions
+    bio = models.TextField(blank=True, null=True)
+    profile_image = models.ImageField(upload_to='profiles/', blank=True, null=True)
+    name = models.CharField(max_length=100)
+    age = models.IntegerField()
+    height = models.FloatField()
+    weight = models.FloatField()
+    diet_pref = models.CharField(max_length=200, blank=True, null=True)
+    food_allergies = models.CharField(max_length=100, blank=True, null=True)
+    health_con = models.ManyToManyField(HealthConditions, blank=True)  # User's health conditions
 
     def __str__(self):
-        return f"{self.user.username}'s preferences"
+        return self.user.username
 
-from django.db import models
-from django.contrib.auth.models import User
-from django.utils.timezone import now
-from datetime import timedelta
+def default_expiration():
+    return now() + timedelta(hours=24)
 
 class EmailVerificationCode(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='verification_code')
     code = models.CharField(max_length=32, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    expires_at = models.DateTimeField(default=lambda: now() + timedelta(hours=24))
+    expires_at = models.DateTimeField(default=default_expiration)
     is_valid = models.BooleanField(default=True)
 
     def is_expired(self):

@@ -1,7 +1,37 @@
 # demo/forms.py
 from django import forms
 from django.contrib.auth.models import User
+from .models import UserProfile, HealthConditions
 
+class UserProfileForm(forms.ModelForm):
+    diet_pref = forms.MultipleChoiceField(
+        choices=[
+            ('Vegetarian', 'Vegetarian'),
+            ('Non-Vegetarian', 'Non-Vegetarian'),
+            ('Vegan', 'Vegan'),
+        ],
+        widget=forms.CheckboxSelectMultiple,
+        required=False
+    )
+    food_allergies = forms.ChoiceField(
+        choices=[
+            ('lactose_intolerance', 'Lactose Intolerance'),
+            ('gluten_intolerance', 'Gluten Intolerance'),
+            ('fructose_intolerance', 'Fructose Intolerance'),
+            ('histamine_intolerance', 'Histamine Intolerance'),
+        ],
+        widget=forms.Select,
+        required=False
+    )
+    health_con = forms.ModelMultipleChoiceField(
+        queryset= HealthConditions.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=False
+    )
+
+    class Meta:
+        model = UserProfile
+        fields = ['name', 'age', 'height', 'weight', 'diet_pref', 'food_allergies', 'health_con']
 class SignUpForm(forms.ModelForm):
     password1 = forms.CharField(widget=forms.PasswordInput, label="Password")
     password2 = forms.CharField(widget=forms.PasswordInput, label="Confirm Password")
@@ -16,20 +46,3 @@ class SignUpForm(forms.ModelForm):
         if password1 and password2 and password1 != password2:
             raise forms.ValidationError("Passwords do not match.")
         return password2
-
-from django import forms
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
-
-class SignUpForm(UserCreationForm):
-    email = forms.EmailField(required=True)
-
-    class Meta:
-        model = User
-        fields = ('username', 'email', 'password1', 'password2')
-
-    def clean_email(self):
-        email = self.cleaned_data.get('email')
-        if User.objects.filter(email=email).exists():
-            raise forms.ValidationError("Email already in use.")
-        return email

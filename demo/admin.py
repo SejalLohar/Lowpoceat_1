@@ -1,8 +1,10 @@
 from django.contrib import admin
-from .models import Disease, Ingredient, Meal, MealIngredient, UserPreference
+from .models import HealthConditions,  Meal,  UserProfile, EmailVerificationCode
 
-admin.site.register(Disease)
-admin.site.register(Ingredient)
+# Register your models here.
+admin.site.register(HealthConditions)
+
 admin.site.register(Meal)
-admin.site.register(MealIngredient)
-admin.site.register(UserPreference)
+
+admin.site.register(UserProfile)
+admin.site.register(EmailVerificationCode)
