@@ -11,4 +11,6 @@ urlpatterns = [
     path('profilesuccess/', views.profile_success, name='profile_success'),
     path('recipes/', views.recipe_list_view, name='recipe_list'),  # Updated view name
     path('recipes/<int:recipe_id>/', views.recipe_detail_view, name='recipe_detail'),
+    path('help/', views.help_page, name='help_page'),  # URL for the help page
+    path('contact-us/', views.contact_us, name='contact_us'),
 ]

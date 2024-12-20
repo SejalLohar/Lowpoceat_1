@@ -135,3 +135,35 @@ def recipe_detail_view(request, recipe_id):
         'recipe': recipe,
         'associated_health_conditions': associated_health_conditions
     })
+
+
+from django.shortcuts import render
+from django.http import HttpResponse
+from django.core.mail import send_mail
+from django.conf import settings
+
+def help_page(request):
+    return render(request, 'demo/help.html')
+
+def contact_us(request):
+    """
+    Handles the contact form submission.
+    """
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+
+        # Send email (adjust settings.py to enable email sending)
+        try:
+            send_mail(
+                subject=f"Contact Us Form Submission from {name}",
+                message=f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}",
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=['support@example.com'],  # Replace with your support email
+            )
+            return HttpResponse("Your message has been sent successfully. We'll get back to you shortly.")
+        except Exception as e:
+            return HttpResponse(f"Error: {e}")
+    else:
+        return HttpResponse("Invalid request.")

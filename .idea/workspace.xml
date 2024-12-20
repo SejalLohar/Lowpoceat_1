@@ -5,24 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e094022d-f0f9-4a32-9398-56f9a20e549d" name="Changes" comment="user and login db success">
-      <change afterPath="$PROJECT_DIR$/demo/static/images/backg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/templates/demo/profilesuc.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/templates/demo/recipe_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/templates/demo/recipe_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qodana.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/templates/demo/help.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DjangoProject2/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoProject2/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/migrations/0002_disease_ingredient_meal_mealingredient_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/migrations/0003_meal_description.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/templates/demo/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/demo/templates/demo/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/templates/demo/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/demo/templates/demo/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/templates/demo/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/demo/templates/demo/signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/templates/demo/userprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/demo/templates/demo/userprofile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/views.py" afterDir="false" />
     </list>
@@ -173,6 +158,7 @@
       <workItem from="1734410400478" duration="1972000" />
       <workItem from="1734422775780" duration="309000" />
       <workItem from="1734512676607" duration="480000" />
+      <workItem from="1734690230116" duration="549000" />
     </task>
     <task id="LOCAL-00001" summary="hi">
       <option name="closed" value="true" />
