@@ -46,3 +46,11 @@ class SignUpForm(forms.ModelForm):
         if password1 and password2 and password1 != password2:
             raise forms.ValidationError("Passwords do not match.")
         return password2
+
+
+
+class FeedbackForm(forms.Form):
+    name = forms.CharField(max_length=100, required=True)
+    email = forms.EmailField(required=True)
+    message = forms.CharField(widget=forms.Textarea, required=True)
+    rating = forms.ChoiceField(choices=[(str(i), str(i)) for i in range(1, 6)], required=True)

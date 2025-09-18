@@ -7,6 +7,9 @@
   <title>Sign Up Page</title> 
   <style> 
     /* Styles for the page (same as before) */ 
+    *{
+      font-family: 'time new roman', serif;
+    }
     .container { 
       width: 100%; 
       height: 100vh; 
@@ -14,14 +17,15 @@
       flex-direction: column; 
       justify-content: center; 
       align-items: center; 
-      background: white; 
+      background: #FFF1DB; 
       padding: 20px; 
+      
     } 
  
     .sign-up-title { 
-      font-size: 32px; 
-      font-family: 'Inter', sans-serif; 
-      font-weight: 500; 
+      text-align: center;
+      font-size: 36px; 
+      font-weight: 600; 
       color: black; 
       margin-bottom: 40px; 
     } 
@@ -29,10 +33,10 @@
     .form-container { 
       width: 100%; 
       max-width: 500px; 
-      background: #f0f0f0; 
+      background: #D4BDAC; 
       padding: 30px; 
       border-radius: 8px; 
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+      box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); 
     } 
  
     .input-field { 
@@ -137,7 +141,7 @@
 <body> 
   <div class="container"> 
     <!-- Sign up title --> 
-    <div class="sign-up-title">Sign Up</div> 
+    
  
     <!-- Displaying messages (error/success) --> 
     {% if messages %} 
@@ -152,6 +156,7 @@
  
     <!-- Form Container --> 
     <div class="form-container"> 
+      <div class="sign-up-title">Sign Up</div> 
       <form method="post" onsubmit="return validateForm()"> 
         {% csrf_token %} 
  
@@ -168,8 +173,7 @@
         <input type="password" name="password1" id="password1" class="input-field" placeholder="Enter your password" required> 
  
         <!-- Reconfirm Password --> 
-        <label for="password2"
-class="input-label">Reconfirm Password:</label> 
+        <label for="password2" class="input-label">Reconfirm Password:</label> 
         <input type="password" name="password2" id="password2" class="input-field" placeholder="Reconfirm your password" required> 
  
         <!-- Sign up Button --> 

@@ -27,7 +27,7 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'time new roman', serif;
             line-height: 1.6;
             color: var(--text-primary);
             background: var(--background-color);
@@ -46,13 +46,14 @@
             padding: 20px 40px;
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            box-shadow: 10px 10px 6px rgba(0, 0, 0, 0.05);
             z-index: 1000;
             transition: all 0.3s ease;
+            text-transform: uppercase;
         }
 
         .navbar .logo {
-            width: 150px;
+            width: 180px;
             transition: transform 0.3s ease;
         }
 
@@ -67,6 +68,7 @@
         }
 
         .nav-links a {
+            font-size: 16px;
             text-decoration: none;
             color: var(--text-primary);
             font-weight: 500;
@@ -99,9 +101,10 @@
             align-items: center;
             min-height: 100vh;
             padding: 100px 40px 50px;
-            background:
+           /* background:
                 linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
-                url("{% static 'images/backg.jpg' %}") no-repeat center center/cover;
+                url("{% static 'images/backg.jpg' %}") no-repeat center center/cover;*/
+            background: #FFF1DB;
             position: relative;
             overflow: hidden;
         }
@@ -162,7 +165,8 @@
         /* Featured Recipes */
         .featured {
             padding: 80px 40px;
-            background: white;
+            background: #FFF1DB;
+            text-transform: uppercase;
         }
 
         .featured h2 {
@@ -182,15 +186,19 @@
         }
 
         .card {
+            cursor: pointer;
             width: 350px;
             background: var(--card-background);
             border-radius: var(--border-radius);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 10px 10px 20px rgba(0,0,0,0.1);
             overflow: hidden;
             transition: all 0.4s ease;
             transform: perspective(1000px) rotateX(-10deg) scale(0.9);
             opacity: 0;
             animation: fadeInScale 0.8s forwards ease-out;
+        }
+        card::hover{
+            box-shadow: 10px 10px 10px rgba(0,0,0,0.1);
         }
 
         @keyframes fadeInScale {
@@ -278,10 +286,16 @@
         <div class="nav-links">
             <a href="{% url 'home' %}">Home</a>
             <a href="{% url 'signup' %}">Sign Up</a>
-            <a href="{% url 'login' %}">Login</a>
-            <a href="{% url 'help_page' %}">Help</a>
+            <!-- <a href="{% url 'login' %}">Login</a> -->
+            <a href="{% url 'feedback_page' %}">Feedback</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+            {% endif %}
         </div>
     </nav>
+    
 
     <!-- Hero Section -->
     <section class="hero">
@@ -289,7 +303,7 @@
     <h1>Namaste Indians!</h1>
             <p>We are here to add nutrition to your life. Join us to explore affordable, personalized meal plans tailored just for you!</p>
             <div class="cta-buttons">
-                <a href="{% url 'user_profile' %}" class="cta-button cta-primary">Get Started</a>
+               <!--<a href="{% url 'user_profile' %}" class="cta-button cta-primary">Get Started</a>-->
                 <a href="{% url 'recipe_list' %}" class="cta-button cta-secondary">Explore Meals</a>
             </div>
         </div>
@@ -300,17 +314,24 @@
         <h2>Featured Recipes</h2>
         <div class="card-container">
             <div class="card">
-                <img src="{% static 'images/recipe1.jpg' %}" alt="Recipe 1">
+                <img src="{% static 'images/panner.jpg' %}" alt="Recipe 1">
                 <div class="content">
                     <h3>Spicy Paneer Curry</h3>
                     <p>A delicious, protein-packed meal for your health.</p>
                 </div>
             </div>
             <div class="card">
-                <img src="{% static 'images/recipe2.jpg' %}" alt="Recipe 2">
+                <img src="{% static 'images/salad.jpg' %}" alt="Recipe 2">
                 <div class="content">
                     <h3>Healthy Veg Salad</h3>
                     <p>Fresh vegetables with a zesty twist.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/chicken.jpg' %}" alt="Recipe 2">
+                <div class="content">
+                    <h3>Healthy Chicken </h3>
+                    <p>Fresh Chicken with a spicy spices .</p>
                 </div>
             </div>
         </div>

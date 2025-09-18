@@ -5,8 +5,17 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from .models import Meal, UserProfile, HealthConditions
 from .forms import SignUpForm, UserProfileForm, User
+# demo/views.py
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
+from django.contrib import messages
+from .models import EmailVerificationCode
+from .forms import SignUpForm
+from .utils import generate_otp, send_otp_email
+from django.contrib.auth import logout
+from .models import Feedback
+from .forms import FeedbackForm
 
-# Sign Up View
 def signup_view(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
@@ -28,14 +37,38 @@ def signup_view(request):
 
             # Create and save user
             user = User.objects.create_user(username=username, email=email, password=password1)
+            user.is_active = False  # Deactivate account till it is confirmed
             user.save()
 
-            # Display success message
-            messages.success(request, "Your account has been created. Please log in.")
-            return redirect('login')
+            # Generate and send OTP
+            otp = generate_otp()
+            EmailVerificationCode.objects.create(user=user, code=otp)
+            send_otp_email(user, otp)
+
+            request.session['user_id'] = user.id
+            return redirect('verify_otp')
     else:
         form = SignUpForm()
     return render(request, 'demo/signup.html', {'form': form})
+
+def verify_otp(request):
+    if request.method == 'POST':
+        otp = request.POST.get('otp')
+        user_id = request.session.get('user_id')
+        user = User.objects.get(id=user_id)
+        otp_obj = EmailVerificationCode.objects.get(user=user)
+
+        if otp_obj.code == otp and not otp_obj.is_expired():
+            user.is_active = True
+            user.save()
+            otp_obj.is_valid = False
+            otp_obj.save()
+            messages.success(request, "Your email has been verified. Please log in.")
+            return redirect('login')
+        else:
+            messages.error(request, "Invalid or expired OTP.")
+            return render(request, 'demo/verify_otp.html')
+    return render(request, 'demo/verify_otp.html')
 
 # Login View
 def login_view(request):
@@ -142,8 +175,33 @@ from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.conf import settings
 
-def help_page(request):
-    return render(request, 'demo/help.html')
+def feedback_page(request):
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            rating = form.cleaned_data['rating']
+
+            # Save feedback to the database
+            feedback = Feedback(name=name, email=email, message=message, rating=rating)
+            feedback.save()
+
+            # Send email (adjust settings.py to enable email sending)
+            try:
+                send_mail(
+                    subject=f"Contact Us Form Submission from {name}",
+                    message=f"Name: {name}\nEmail: {email}\nRating: {rating}\n\nMessage:\n{message}",
+                    from_email=settings.DEFAULT_FROM_EMAIL,
+                    recipient_list=['support@example.com'],  # Replace with your support email
+                )
+                return HttpResponse("Your message has been sent successfully. We'll get back to you shortly.")
+            except Exception as e:
+                return HttpResponse(f"Error: {e}")
+    else:
+        form = FeedbackForm()
+    return render(request, 'demo/feedback.html', {'form': form})
 
 def contact_us(request):
     """
@@ -167,3 +225,7 @@ def contact_us(request):
             return HttpResponse(f"Error: {e}")
     else:
         return HttpResponse("Invalid request.")
+    
+def logout_view(request):
+    logout(request)
+    return redirect('login')

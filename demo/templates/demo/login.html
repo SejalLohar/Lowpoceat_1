@@ -7,6 +7,7 @@
   <title>Login Page</title> 
   <style> 
     /* Styles remain the same as before */ 
+   
     .container { 
       width: 100%; 
       height: 100vh; 
@@ -14,25 +15,27 @@
       flex-direction: column; 
       justify-content: center; 
       align-items: center; 
-      background: white; 
-      padding: 20px; 
+      background: #FFF1DB; 
+      padding: 20px;   
+      text-transform:uppercase;
     } 
  
     .login-title { 
-      font-size: 32px; 
-      font-family: 'Inter', sans-serif; 
-      font-weight: 500; 
+      font-size: 38px; 
+      font-weight: 600; 
       color: black; 
       margin-bottom: 40px; 
+      text-align:center;
     } 
  
     .form-container { 
       width: 100%; 
       max-width: 500px; 
-      background: #f0f0f0; 
+      background: #D4BDAC; 
       padding: 30px; 
       border-radius: 8px; 
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+      box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); 
+      font-family: 'time new roman', serif; 
     } 
  
     .input-field { 
@@ -57,7 +60,7 @@
     .login-button { 
       width: 100%; 
       padding: 16px; 
-      background: black; 
+      background:black;
       color: white; 
       font-size: 18px; 
       font-family: 'Inter', sans-serif; 
@@ -137,7 +140,7 @@
 <body> 
 <div class="container"> 
     <!-- Login Title --> 
-    <div class="login-title">Login</div> 
+     
  
     <!-- Displaying messages (error/success) --> 
     {% if messages %} 
@@ -152,6 +155,7 @@
  
     <!-- Form Container --> 
     <div class="form-container"> 
+      <div class="login-title">Login</div>
       <form method="post" onsubmit="return validateLoginForm()"> 
         {% csrf_token %} 
         <label for="username" class="input-label">Username:</label> 
